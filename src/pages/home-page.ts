@@ -10,6 +10,7 @@ import '../elements/about-organizer-block';
 import '../elements/featured-videos';
 import '../elements/fork-me-block';
 import '../elements/gallery-block';
+import '../elements/job-openings-block';
 import '../elements/latest-posts-block';
 import '../elements/map-block';
 import '../elements/partners-block';
@@ -30,7 +31,7 @@ import {
   location,
   showForkMeBlockForProjectIds,
   title,
-  viewHighlights,
+  viewHighlights
 } from '../utils/data';
 import '../utils/icons';
 import { INCLUDE_SITE_TITLE, updateMetadata } from '../utils/metadata';
@@ -176,6 +177,10 @@ export class HomePage extends ReduxMixin(PolymerElement) {
               <iron-icon icon="hoverboard:movie"></iron-icon>
               [[viewHighlights]]
             </paper-button>
+            <paper-button on-click="scrollToTickets" primary invert>
+              <iron-icon icon="hoverboard:ticket"></iron-icon>
+              [[buyTicket]]
+            </paper-button>
           </div>
 
           <div class="scroll-down" on-click="scrollNextBlock">
@@ -247,9 +252,11 @@ export class HomePage extends ReduxMixin(PolymerElement) {
       </template>
       <about-block></about-block>
       <speakers-block></speakers-block>
+      <tickets-block id="tickets-block"></tickets-block>
       <gallery-block></gallery-block>
       <about-organizer-block></about-organizer-block>
       <featured-videos></featured-videos>
+      <job-openings-block></job-openings-block>
       <latest-posts-block></latest-posts-block>
       <map-block></map-block>
       <partners-block></partners-block>
